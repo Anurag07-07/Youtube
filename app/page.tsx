@@ -153,7 +153,6 @@ export default function Page() {
     })
 
     tl.to({},{duration:1})
-
     tl.to(blockRef.current,{
       opacity:0,
       onComplete:()=>{
@@ -174,9 +173,13 @@ export default function Page() {
     </div>
     <div>
       {
-        view && (<div>
+        view &&
+        (
+        <div>
+          
           <Landingpage></Landingpage>
-        </div>)
+        </div>
+        )
       }
     </div>
   </div>
