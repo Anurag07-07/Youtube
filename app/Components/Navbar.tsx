@@ -15,29 +15,30 @@ const Navbar = () => {
   return (
     <div className="transition-all duration-300">
       {nav ? (
-        <nav className="transition-all duration-300 flex justify-between p-4 gap-x-2 items-center text-white bg-black">
+        <nav className="flex justify-between items-center p-4 bg-black text-white">
           {/* Sidebar Toggle */}
-          <div onClick={() => (expanded ? collapse() : expand())} className="cursor-pointer">
+          <div
+            onClick={() => (expanded ? collapse() : expand())}
+            className="cursor-pointer"
+          >
             <IoMenu size={30} />
           </div>
 
-          {/* Logo and search bar */}
-          <div className="flex justify-between w-full">
-            <div className="flex justify-between items-center gap-x-4">
-              {/* Logo */}
-              <div className="relative flex justify-center items-center gap-x-1">
-                <Image src={image} width={30} alt="logo" />
-                <div className="font-semibold text-lg">YouTube</div>
-              </div>
-
-              {/* Search icon (mobile only) */}
-              <div onClick={() => setNav(false)} className="sm:hidden cursor-pointer">
-                <CiSearch size={30} />
-              </div>
+          {/* Logo + Search Section */}
+          <div className="flex justify-between w-full items-center gap-x-4">
+            {/* Logo */}
+            <div className="flex items-center gap-x-1">
+              <Image src={image} width={30} alt="logo" />
+              <span className="font-semibold text-lg hidden sm:block">YouTube</span>
             </div>
 
-            {/* Search bar (desktop) */}
-            <div className="relative hidden sm:flex justify-center items-center">
+            {/* Mobile Search icon */}
+            <div onClick={() => setNav(false)} className="sm:hidden cursor-pointer">
+              <CiSearch size={28} />
+            </div>
+
+            {/* Desktop Search Bar */}
+            <div className="hidden sm:flex relative items-center">
               <input
                 placeholder="Search"
                 className="w-[30vw] rounded-full px-3 py-1 bg-gray-800 text-white outline-none"
@@ -50,25 +51,26 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Create & Account */}
-            <div className="flex justify-center items-center gap-x-3">
-              <button className="bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-600">+ Create</button>
+            {/* Create + Account */}
+            <div className="flex items-center gap-x-3">
+              <button className="bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-600 hidden sm:block">
+                + Create
+              </button>
               <Image src={acc} width={30} height={30} className="rounded-full" alt="account" />
             </div>
           </div>
         </nav>
       ) : (
         // Mobile Search View
-        <nav className="transition-all duration-300 w-full flex justify-between items-center p-4 bg-black text-white">
+        <nav className="flex items-center justify-between p-4 bg-black text-white">
           <div onClick={() => setNav(true)} className="cursor-pointer">
             <FaArrowLeft size={20} />
           </div>
 
-          {/* Input Box */}
-          <div className="flex relative">
+          <div className="flex relative items-center w-full ml-4">
             <input
               placeholder="Search"
-              className="border-2 w-80 rounded-full px-3 bg-gray-800 text-white outline-none"
+              className="w-full rounded-full px-3 py-1 bg-gray-800 text-white outline-none"
             />
             <div className="absolute right-0 bg-gray-600 w-14 h-7 flex justify-center items-center rounded-r-full">
               <CiSearch />
