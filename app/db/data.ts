@@ -4,6 +4,7 @@ import arijit from '../assets/atifarijit.png'
 import football from '../assets/indiaFootball.png'
 import queenland from '../assets/queenland.png'
 import twitch from '../assets/twitch.png'
+import { StaticImageData } from 'next/image'
 
 interface IData{
   id:number,
@@ -11,7 +12,7 @@ interface IData{
   channel:string,
   views:string,
   duration:string,
-  thumbnail:string,
+  thumbnail:StaticImageData,
   age:string
   videoLink:string
   like:string,

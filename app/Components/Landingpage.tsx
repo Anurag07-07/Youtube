@@ -13,7 +13,6 @@ const Landingpage = () => {
       <div
         className={`fixed left-0 top-16 bottom-0 bg-gray-950 z-40 transition-all duration-500 ease-in-out
           ${expanded ? 'w-64 sm:w-64' : 'w-0 sm:w-20'}
-          ${expanded ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'}
         `}
       >
         <Slider />
